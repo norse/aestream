@@ -1,0 +1,561 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="install.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>AEStream 0.6.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="#"><div class="brand">AEStream 0.6.2 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+  
+  
+  <span class="sidebar-brand-text">AEStream 0.6.2 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About AEStream</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using AEStream</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_usage.html">Python usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rfc_api.html">API Request For Comment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stubs_api.html">API Roadmap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aestream.html">aestream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aestream_ext.html">aestream.aestream_ext</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/index.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/norse/aestream/edit/feature-docs/docs/index.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<p><a href="https://github.com/aestream/aestream"><img src="https://github.com/aestream/aestream/raw/main/logo.png" /></a></p>
+<p align="center">
+    <a href="https://github.com/aestream/aestream/actions">
+        <img src="https://github.com/aestream/aestream/workflows/Build%20and%20test/badge.svg" alt="Test status"></a>
+    <a href="https://pypi.org/project/aestream/" alt="PyPi">
+        <img src="https://img.shields.io/pypi/dm/aestream" />
+    </a>
+    <a href="https://github.com/aestream/aestream/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/last-commit/aestream/aestream" />
+    </a>
+    <a href="https://discord.gg/7fGN359">
+        <img src="https://img.shields.io/discord/723215296399147089"
+            alt="chat on Discord"></a>
+    <a href="https://doi.org/10.1145/3584954.3584997"><img src="https://zenodo.org/badge/DOI/10.1145/3584954.3584997.svg" alt="DOI"></a>
+</p>
+<p>AEStream sends event-based data from A to B.
+AEStream is both a command-line tool an a C++/Python library with built-in GPU-acceleration for use with <a class="reference external" href="https://pytorch.org/">PyTorch</a>, and <a class="reference external" href="https://jax.readthedocs.io/en/latest/">Jax</a>.
+We support reading and writing from files, <a class="reference external" href="https://en.wikipedia.org/wiki/Event_camera">event cameras</a>, network protocols, and visualization tools.</p>
+<img src="https://github.com/aestream/aestream/raw/main/docs/aestream_flow.png" />
+<p>Read more about the inner workings of the library in <a class="reference external" href="https://jegp.github.io/aestream-paper/">the AEStream publication</a>.</p>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><p>Read more in our <a class="reference external" href="https://aestream.github.io/aestream/install.html">installation guide</a></p>
+</div></blockquote>
+<p>The fastest way to install AEStream is by using pip: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">aestream</span></code>.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
+<th class="head"><p><strong>Installation</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pypi.org/">pip</a></p></td>
+<td><p><code>pip install aestream</code> <br/> <code>pip install aestream –no-binary aestream</code></p></td>
+<td><p>Standard installation <br/> Support for <a href="https://aestream.github.io/aestream/install.html#Event-camera-support">event-cameras</a> and CUDA kernels</a> (<a class="reference external" href="https://aestream.github.io/aestream/install.html#installing-with-cuda-support">more info</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://nixos.org/">nix</a></p></td>
+<td><p><code>nix run github:aestream/aestream</code> <br/> <code>nix develop github:aestream/aestream</code></p></td>
+<td><p>Command-line interface <br/> Python environment</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docker.com/">docker</a></p></td>
+<td><p>See <a href="https://aestream.github.io/aestream/install.html">Installation documentation</a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Contributions to support AEStream on additional platforms are always welcome.</p>
+</section>
+<section id="usage-python-load-event-files">
+<h1>Usage (Python): Load event files<a class="headerlink" href="#usage-python-load-event-files" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><p>Read more in our <a class="reference external" href="https://aestream.github.io/aestream/python_usage.html">Python usage guide</a></p>
+</div></blockquote>
+<p>AEStream can process <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">.evt3</span></code>, and <code class="docutils literal notranslate"><span class="pre">.aedat4</span></code> files like so.
+You can either directly load the file into memory</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FileInput</span><span class="p">(</span><span class="s2">&quot;file.aedat4&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>or stream the file in real-time to PyTorch, Jax, or Numpy</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">FileInput</span><span class="p">(</span><span class="s2">&quot;file.aedat4&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;torch&quot;</span><span class="p">)</span> <span class="c1"># Or &quot;jax&quot; or &quot;numpy&quot;</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="usage-python-stream-data-from-camera-or-network">
+<h1>Usage (Python): stream data from camera or network<a class="headerlink" href="#usage-python-stream-data-from-camera-or-network" title="Link to this heading">¶</a></h1>
+<p>Streaming data is particularly useful in real-time scenarios.
+We currently support <a class="reference external" href="https://inivation.com/">Inivation</a>, <a class="reference external" href="https://github.com/prophesee-ai/openeb/">Prophesee</a>, and <a class="reference external" href="https://www.synsense.ai/">SynSense</a> devices over USB, as well as the <a class="reference external" href="https://github.com/SpiNNakerManchester/spif">SPIF</a> protocol over UDP.
+Note: requires local installation of drivers and/or SDKs (see <a class="reference external" href="https://aestream.github.io/aestream/install.html">installation guide</a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stream events from a DVS camera over USB</span>
+<span class="k">with</span> <span class="n">USBInput</span><span class="p">((</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># A (640, 480) Numpy tensor</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stream events from UDP port 3333 (default)</span>
+<span class="k">with</span> <span class="n">UDPInput</span><span class="p">((</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">),</span> <span class="n">port</span><span class="o">=</span><span class="mi">3333</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;torch&quot;</span><span class="p">)</span> <span class="c1"># A (640, 480) Pytorch tensor</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>More examples can be found in <a class="reference external" href="https://github.com/aestream/aestream/tree/master/example">our example folder</a>.
+Please note the examples may require additional dependencies (such as <a class="reference external" href="https://github.com/norse/norse">Norse</a> for spiking networks or <a class="reference external" href="https://github.com/py-sdl/py-sdl2">PySDL</a> for rendering). To install all the requirements, simply stand in the <code class="docutils literal notranslate"><span class="pre">aestream</span></code> root directory and run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">example/requirements.txt</span></code></p>
+<section id="example-real-time-edge-detection-with-spiking-neural-networks">
+<h2>Example: real-time edge detection with spiking neural networks<a class="headerlink" href="#example-real-time-edge-detection-with-spiking-neural-networks" title="Link to this heading">¶</a></h2>
+<p><img alt="" src="https://media.githubusercontent.com/media/aestream/aestream/main/example/usb_edgedetection.gif" /></p>
+<p>We stream events from a camera connected via USB and process them on a GPU in real-time using the <a class="reference external" href="https://github.com/norse/norse">spiking neural network library, Norse</a> using fewer than 50 lines of Python.
+The left panel in the video shows the raw signal, while the middle and right panels show horizontal and vertical edge detection respectively.
+The full example can be found in <a class="reference external" href="https://github.com/aestream/aestream/blob/main/example/usb_edgedetection.py"><code class="docutils literal notranslate"><span class="pre">example/usb_edgedetection.py</span></code></a></p>
+</section>
+</section>
+<section id="usage-cli">
+<h1>Usage (CLI)<a class="headerlink" href="#usage-cli" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><p>Read more in our <a class="reference external" href="https://aestream.github.io/aestream/install.html">CLI usage documentation page</a></p>
+</div></blockquote>
+<p>Installing AEStream also gives access to the command-line interface (CLI) <code class="docutils literal notranslate"><span class="pre">aestream</span></code>.
+To use <code class="docutils literal notranslate"><span class="pre">aestraem</span></code>, simply provide an <code class="docutils literal notranslate"><span class="pre">input</span></code> source and an optional <code class="docutils literal notranslate"><span class="pre">output</span></code> sink (defaulting to STDOUT):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aestream<span class="w"> </span>input<span class="w"> </span>&lt;input<span class="w"> </span>source&gt;<span class="w"> </span><span class="o">[</span>output<span class="w"> </span>&lt;output<span class="w"> </span>sink&gt;<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="supported-inputs-and-outputs">
+<h1>Supported Inputs and Outputs<a class="headerlink" href="#supported-inputs-and-outputs" title="Link to this heading">¶</a></h1>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head"><p>Example usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DAVIS, DVXPlorer</p></td>
+<td class="text-left"><p><a class="reference external" href="https://inivation.com/">Inivation</a> DVS Camera over USB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">inivation</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>EVK Cameras</p></td>
+<td class="text-left"><p><a class="reference external" href="https://www.prophesee.ai/">Prophesee</a> DVS camera over USB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">prophesee</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>File</p></td>
+<td class="text-left"><p>Reads <code class="docutils literal notranslate"><span class="pre">.aedat</span></code>, <code class="docutils literal notranslate"><span class="pre">.aedat4</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.dat</span></code>, or <code class="docutils literal notranslate"><span class="pre">.raw</span></code> files</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">file</span> <span class="pre">x.aedat4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.synsense.ai/products/speck-2/">SynSense Speck</a></p></td>
+<td class="text-left"><p>Stream events via ZMQ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">speck</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>UDP network</p></td>
+<td class="text-left"><p>Receives stream of events via the <a class="reference external" href="https://github.com/SpiNNakerManchester/spif/tree/master/spiffer">SPIF protocol</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">udp</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Output</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>STDOUT</p></td>
+<td><p>Standard output (default output)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">stdout</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet over UDP</p></td>
+<td><p>Outputs to a given IP and port using the <a class="reference external" href="https://github.com/SpiNNakerManchester/spif">SPIF protocol</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">udp</span> <span class="pre">10.0.0.1</span> <span class="pre">1234</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>File: <code class="docutils literal notranslate"><span class="pre">.aedat4</span></code></p></td>
+<td><p>Output to <a class="reference external" href="https://gitlab.com/inivation/inivation-docs/blob/master/Software%20user%20guides/AEDAT_file_formats.md#aedat-40"><code class="docutils literal notranslate"><span class="pre">.aedat4</span></code> format</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">file</span> <span class="pre">my_file.aedat4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>File: <code class="docutils literal notranslate"><span class="pre">.csv</span></code></p></td>
+<td><p>Output to comma-separated-value (CSV) file format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">file</span> <span class="pre">my_file.csv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Viewer</p></td>
+<td><p>View live event stream</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">view</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cli-examples">
+<h1>CLI examples<a class="headerlink" href="#cli-examples" title="Link to this heading">¶</a></h1>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Syntax</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>View live stream of Inivation camera (requires Inivation drivers)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aestream</span> <span class="pre">input</span> <span class="pre">inivation</span> <span class="pre">output</span> <span class="pre">view</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Stream Prophesee camera over the network to 10.0.0.1 (requires Metavision SDK)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aestream</span> <span class="pre">input</span> <span class="pre">output</span> <span class="pre">udp</span> <span class="pre">10.0.0.1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Convert <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file to <code class="docutils literal notranslate"><span class="pre">.aedat4</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aestream</span> <span class="pre">input</span> <span class="pre">example/sample.dat</span> <span class="pre">output</span> <span class="pre">file</span> <span class="pre">converted.aedat4</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">¶</a></h1>
+<p>AEStream is developed by (in alphabetical order):</p>
+<ul class="simple">
+<li><p>Cameron Barker (&#64;GitHub <a class="reference external" href="https://github.com/cameron-git/">cameron-git</a>)</p></li>
+<li><p><a class="reference external" href="https://www.kth.se/profile/jprb">Juan Pablo Romero Bermudez</a> (&#64;GitHub <a class="reference external" href="https://github.com/jpromerob/">jpromerob</a>)</p></li>
+<li><p>Alexander Hadjivanov (&#64;Github <a class="reference external" href="https://github.com/cantordust">cantordust</a>)</p></li>
+<li><p>Emil Jansson (&#64;GitHub <a class="reference external" href="https://github.com/emijan-kth">emijan-kth</a>)</p></li>
+<li><p><a class="reference external" href="https://www.kth.se/profile/jeped">Jens E. Pedersen</a> (&#64;GitHub <a class="reference external" href="https://github.com/jegp/">jegp</a>)</p></li>
+<li><p><a class="reference external" href="https://www.kip.uni-heidelberg.de/people/10110">Christian Pehle</a> (&#64;GitHub <a class="reference external" href="https://github.com/cpehle/">cpehle</a>)</p></li>
+</ul>
+<p>The work has received funding from the EC Horizon 2020 Framework Programme under Grant Agreements 785907 and 945539 (HBP) and by the Deutsche Forschungsgemeinschaft (DFG, German Research Fundation) under Germany’s Excellence Strategy EXC 2181/1 - 390900948 (the Heidelberg STRUCTURES Excellence Cluster).</p>
+<p>Thanks to <a class="reference external" href="https://github.com/PMMon">Philipp Mondorf</a> for interfacing with Metavision SDK and preliminary network code.</p>
+<a href="https://github.com/aestream/aestream/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=aestream/aestream" />
+</a>
+</section>
+<section id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Link to this heading">¶</a></h1>
+<p>Please cite <code class="docutils literal notranslate"><span class="pre">aestream</span></code> if you use it in your work:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">10.1145/3584954.3584997</span><span class="p">,</span>
+<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Pedersen, Jens Egholm and Conradt, Jorg}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AEStream: Accelerated event-based processing with coroutines}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">isbn</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{9781450399470}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Association for Computing Machinery}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{New York, NY, USA}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.1145/3584954.3584997}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.1145/3584954.3584997}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">booktitle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Proceedings of the 2023 Annual Neuro-Inspired Computational Elements Conference}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{86–91}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">numpages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{6}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">keywords</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{coroutines, event-based vision, graphical processing unit, neuromorphic computing}</span><span class="p">,</span>
+<span class="w">    </span><span class="na">location</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{San Antonio, TX, USA, }</span><span class="p">,</span>
+<span class="w">    </span><span class="na">series</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{NICE &#39;23}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="install.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Installation</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=1c28bd9a"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
