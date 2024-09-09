@@ -11,7 +11,7 @@ jobs:
     name: "Build and test: C++"
     strategy:
       matrix:
-        os: [ubuntu-latest] #, macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,9 @@ jobs:
       - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-22.11
-      - run: nix run .#test
+      - run: nix run .#test --impure
+        env:
+          NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: 1
       - run: nix shell -c which aestream
 
   test-python:
